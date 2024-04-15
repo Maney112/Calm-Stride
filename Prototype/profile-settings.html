@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>User Profile</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="User Profile Page" />
+    <meta name="keywords" content="profile, user, account" />
+    <link rel="stylesheet" href="template.css" type="text/css" />
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><a href="CalmStride.html">Calm Stride</a></li>
+            <li><a href="profile-settings.html">Profile</a></li>
+            <li><a href="event-calendar .html">Event Calendar</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="#" id="logoutBtn">Logout</a></li>
+        </ul>
+    </nav>
+    <h1> Explore the way to find calmness</h1>
+</header>
+<main>
+    <div class="logo">
+        <img src="Logo.png" alt="Logo">
+    </div>
+    <div class="profile-container">
+        <h1>User Profile</h1>
+        <form id="profileForm">
+            <div class="username">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="email">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="password">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Save Profile</button>
+        </form>
+    </div>
+</main>
+<footer>
+    <p>&copy; 2024 Calm Stride. All rights reserved.</p>
+</footer>
+<script>
+    document.getElementById('profileForm').addEventListener('submit', function(event) {
+        event.preventDefault(); 
+       
+        var email = document.getElementById('email').value;
+        if (!isValidEmail(email)) {
+            alert('Please enter a valid email address.');
+            return;
+        }
+
+        // Validate password criteria (e.g., minimum length)
+        var password = document.getElementById('password').value;
+        if (password.length < 12) {
+            alert('Password must be at least 12 characters long.');
+            return;
+        }
+        // Form data is valid, proceed with submission
+        alert('Profile saved successfully! Redirecting to qustionnaire...');
+        
+        // Redirect to Calm Stride page
+        window.location.href = 'question.html';
+    });
+    
+    function isValidEmail(email) {
+        // Regular expression for email validation
+        var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return regex.test(email);
+    }
+    // Handle logout functionality
+    document.getElementById('logoutBtn').addEventListener('click', function(event) {
+        // Perform logout actions here, such as clearing session data
+        alert('Logged out successfully!');
+        // Redirect to login page or homepage
+        window.location.href = 'profile-settings.html'; // Change 'login.html' to your actual login page
+    });
+</script>
+</body>
+</html>
