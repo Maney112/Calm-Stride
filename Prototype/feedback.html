@@ -84,6 +84,13 @@
         // Resetting the form after submission is done
         this.reset();
     });
+     // Handle logout functionality
+        document.getElementById('logoutBtn').addEventListener('click', function(event) {
+        // Perform logout actions here, such as clearing session data
+        alert('Logged out successfully!');
+        // Redirect to login page or homepage
+        window.location.href = 'profile-settings.html'; // Change 'login.html' to your actual login page
+    });
 </script>
 <!--This is the footer for the page - Onish shrestha-->
 <footer>
